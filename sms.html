@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="resource/css/style.css" />
+    <link rel="stylesheet" href="resource/css/font-awesome.min.css" />
+    <script type="text/javascript" src="resource/lib/jquery-1.11.3.min.js"></script>
+    <title>분양 CRM</title>
+</head>
+<body>
+    <div class="wrap">
+        <div id="container">
+            <div class="con_box message">
+                <div class="message_area">
+                    <div class="message_view">
+                        <div class="phone"></div>
+                        <div class="sms_check">
+                            <span class="sms_status sms">SMS</span>
+                            <span class="sms_status lms">LMS</span>
+                            <span class="sms_status mms">MMS</span>
+                        </div>
+                    </div>
+                    <!--// message_view-->
+
+                    <div class="message_write">
+                        <div class="macro">
+                            <h3>문자 매크로</h3>
+                            <ul>
+                                <li><button type="button" class="btn no_macro">광고</button></li>
+                                <li><button type="button" class="btn">단지명</button></li>
+                                <li><button type="button" class="btn">발신정보</button></li>
+                                <li><button type="button" class="btn no_macro">수신거부</button></li>
+                            </ul>
+                        </div>
+                        <!--//macro-->
+
+                        <div class="text">
+                            <h3>발송 문구</h3>
+<textarea class="input_area" name="message">
+(광고) [[#단지명#] 분양안내]
+
+[#발신정보#]
+※ 무료수신거부 010-1111-2222
+</textarea>
+                        <ul class="description_list">
+                            <li><strong class="red">광고 및 단지명</strong> 매크로를 추가해주십시오.</li>
+                        </ul>
+                    </div>
+                    <!--// text-->
+                </div>
+                <!--// message_write-->
+            </div>
+            <!--// message_area-->
+        </div>
+        <!--// container-->
+    </div>
+    <!--// wrap-->
+
+    <script type="text/javascript" src="resource/js/front.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 문자메시지 기능
+            MYAPP.messageEdit({
+                inputArea: ".input_area",
+                viewArea: ".phone",
+                macroArea: ".macro"
+            });
+
+            // 로딩시 발송문구 모바일 미리보기 출력하기
+            var str = $(".input_area").val().replace(/\n/g, "<br/>").replace(/\[#(.*?)\#]/g, "<strong>$1</strong>");
+            $(".phone").html(str);
+        });
+    </script>
+</body>
+</html>
