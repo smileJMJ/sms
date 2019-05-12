@@ -19,3 +19,6 @@ MYAPP.messageEdit({
 - macroArea: 매크로 버튼 영역의 class/id 명
 
 ※ 매크로 내용 수정은 resources/js/front.js 의 196번째 라인, _changeMacroTxt()에서 수정할 수 있습니다.
+
+## 데모
+https://smilejmj.github.io/sms/sms.html
